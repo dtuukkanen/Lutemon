@@ -26,6 +26,10 @@ public class Lutemon implements Serializable {
         this.idCounter = idCounter;
     }
 
+    public void defense(Lutemon lutemon) {
+        health -= (defence - lutemon.getAttack());
+    }
+
     public String getName() {
         return name;
     }
@@ -35,6 +39,7 @@ public class Lutemon implements Serializable {
     }
 
     public int getAttack() {
+        attack = attack + experience;
         return attack;
     }
 
