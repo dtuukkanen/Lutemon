@@ -35,7 +35,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
             Home.getInstance().createLutemon(new Armatuuri(name, id));
         }
         else if (rbSatky.isChecked()) {
-            Home.getInstance().createLutemon(new Sätky(name, id));
+            Home.getInstance().createLutemon(new Satky(name, id));
         }
         else if (rbLateksii.isChecked()) {
             Home.getInstance().createLutemon(new Lateksii(name, id));
