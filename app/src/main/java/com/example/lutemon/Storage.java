@@ -16,27 +16,16 @@ public class Storage {
         this.name = name;
     }
 
-    /*private static Storage storage = null;
-
-    public Storage() {}
-
-    public Storage(String name) {
-        this.name = name;
-    }
-
-    public static Storage getInstance() {
-        if (storage == null) {
-            storage = new Storage();
-        }
-        return storage;
-    }*/
-
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
     }
 
     public Lutemon getLutemon(int id) {
         return lutemons.get(id);
+    }
+
+    public ArrayList<Lutemon> getLutemons() {
+        return lutemons;
     }
 
     public void listLutemons() {

@@ -6,8 +6,6 @@ public class Home extends Storage{
 
 
     public static Home home = null;
-
-
     protected ArrayList<Lutemon> lutemons = new ArrayList<>();
 
     public Home(String name) {
@@ -25,4 +23,8 @@ public class Home extends Storage{
         lutemons.add(lutemon);
     }
 
+    @Override
+    public ArrayList<Lutemon> getLutemons() {
+        return lutemons;
+    }
 }

@@ -21,7 +21,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
         rbArmatuuri = findViewById(R.id.rbArmatuuri);
         rbSatky = findViewById(R.id.rbSatky);
         rbLateksii = findViewById(R.id.rbLateksii);
-        rbKrk = findViewById(R.id.rbKetek);
+        rbKrk = findViewById(R.id.rbKRK);
         rbKetek = findViewById(R.id.rbKetek);
         editName = findViewById(R.id.editTextName);
     }
