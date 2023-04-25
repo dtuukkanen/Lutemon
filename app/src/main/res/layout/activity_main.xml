@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSwitchToCreation" />
 
     <Button
-        android:id="@+id/btnSwitchToShift"
+        android:id="@+id/btnSwitchToShifting"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Siirrä Lutemoneja"
@@ -43,7 +43,7 @@
         android:text="Taisteluareenalle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSwitchToShift" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSwitchToShifting" />
 
     <Button
         android:id="@+id/btnLoadLutemons"

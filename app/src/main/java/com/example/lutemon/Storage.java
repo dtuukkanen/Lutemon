@@ -15,7 +15,11 @@ public class Storage {
 
     private static Storage storage = null;
 
-    private Storage() {}
+    public Storage() {}
+
+    public Storage(String name) {
+        this.name = name;
+    }
 
     public static Storage getInstance() {
         if (storage == null) {
