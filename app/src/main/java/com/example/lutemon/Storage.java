@@ -18,8 +18,8 @@ public class Storage {
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
     private ArrayList<ArrayList<Lutemon>> lutemonListsForSaving = new ArrayList<>();
 
+    Storage(String name) {}
 
-    private Storage() {}
     public static Storage GetInstance() {
         if (storage == null) {
             storage = new Storage();
