@@ -28,9 +28,10 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSwitchToCreation" />
 
     <Button
-        android:id="@+id/btnSwitchToShift"
+        android:id="@+id/btnSwitchToMove"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:onClick="switchToMove"
         android:text="Siirrä Lutemoneja"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
         android:text="Taisteluareenalle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSwitchToShift" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSwitchToMove" />
 
     <Button
         android:id="@+id/btnLoadLutemons"
