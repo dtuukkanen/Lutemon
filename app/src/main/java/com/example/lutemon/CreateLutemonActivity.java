@@ -12,6 +12,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
     private RadioButton rbArmatuuri, rbSatky, rbLateksii, rbKrk, rbKetek;
     private EditText editName;
     private String name;
+    private int id = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,23 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
 
     public void createLutemon(View view) {
+        ++id;
         name = editName.getText().toString();
 
         if (rbArmatuuri.isChecked()) {
-            //Home.home.createLutemon(new Armatuuri(name));
+            Home.getInstance().createLutemon(new Armatuuri(name, id));
+        }
+        else if (rbSatky.isChecked()) {
+            Home.getInstance().createLutemon(new Sätky(name, id));
+        }
+        else if (rbLateksii.isChecked()) {
+            Home.getInstance().createLutemon(new Lateksii(name, id));
+        }
+        else if (rbKrk.isChecked()) {
+            Home.getInstance().createLutemon(new KRK(name, id));
+        }
+        else if (rbKetek.isChecked()) {
+            Home.getInstance().createLutemon(new KeTek(name, id));
         }
     }
 }

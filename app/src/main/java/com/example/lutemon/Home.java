@@ -14,7 +14,7 @@ public class Home extends Storage{
         super("Koti");
     }
 
-    public static Storage getInstance() {
+    public static Home getInstance() {
         if (home == null) {
             home = new Home("Koti");
         }
