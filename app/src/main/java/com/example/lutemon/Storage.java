@@ -15,7 +15,6 @@ public class Storage {
     private ArrayList<Lutemon> lutemonsAtTraining = new ArrayList<>();
     private ArrayList<Lutemon> lutemonsAtBattle = new ArrayList<>();
     private ArrayList<Lutemon> lutemonsAtDead = new ArrayList<>();
-    private ArrayList<Lutemon> lutemons = new ArrayList<>();
     private ArrayList<ArrayList<Lutemon>> lutemonListsForSaving = new ArrayList<>();
 
     Storage(String name) {}
@@ -48,7 +47,7 @@ public class Storage {
     }
 
     public ArrayList<Lutemon> getLutemons() {
-        lutemons.clear();
+        ArrayList<Lutemon> lutemons = new ArrayList<>();
         lutemons.addAll(lutemonsAtHome);
         lutemons.addAll(lutemonsAtTraining);
         lutemons.addAll(lutemonsAtBattle);
@@ -76,7 +75,7 @@ public class Storage {
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream saveLutemons = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
-            saveLutemons.writeObject(Storage.GetInstance().getLutemonListsForSaving());
+            saveLutemons.writeObject(getLutemonListsForSaving());
             System.out.println("Lutemonit tallennettu.");
             saveLutemons.close();
         } catch (IOException e) {
