@@ -19,8 +19,6 @@ public class TabPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
 
         switch (position) {
-            case 0:
-                return new FragmentHome();
             case 1:
                 return new FragmentTrain();
             case 2:
@@ -32,6 +30,6 @@ public class TabPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }
