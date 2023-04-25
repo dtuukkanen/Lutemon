@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Storage.getInstance().loadLutemons(getApplicationContext());
     }
 
     public void switchToMove(View view) {
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadLutemons(View view) {
         Home.getInstance().loadLutemons(getApplicationContext());
+    }
+
+    public void switchToBattle(View view) {
+        Intent intent = new Intent(this, BattleActivity.class);
+        startActivity(intent);
     }
 
 
