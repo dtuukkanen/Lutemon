@@ -19,7 +19,33 @@ public class BattleField extends Storage{
         return battleField;
     }
 
-    public void fight(){
+    public void fight(int firstId, int secondID){
+
+        Lutemon lutemonOne = lutemons.get(firstId);
+        Lutemon lutemonTwo = lutemons.get(secondID);
+
+        System.out.println("1: " + lutemonOne.name + " (" + lutemonOne.color + ") att: " + lutemonOne.attack + "; def: " + lutemonOne.defence + "; exp: " + lutemonOne.experience + "; exp: " + lutemonOne.experience + "; health: " + lutemonOne.health + "/" + lutemonOne.maxHealth);
+        System.out.println("2: " + lutemonTwo.name + " (" + lutemonTwo.color + ") att: " + lutemonTwo.attack + "; def: " + lutemonTwo.defence + "; exp: " + lutemonTwo.experience + "; exp: " + lutemonTwo.experience + "; health: " + lutemonTwo.health + "/" + lutemonTwo.maxHealth);
+        //StringBuilder sb = new StringBuilder();
+
+        while (lutemonOne.health > 0 && lutemonTwo.health > 0) {
+            System.out.println(lutemonOne.name + "(" + lutemonOne.color + ") " + " hyökkää ja" + lutemonTwo.name + "(" + lutemonTwo.color + ") puolustautuu hyökkäykseltä.");
+            lutemonTwo.defense(lutemonOne);
+
+            System.out.println(lutemonTwo.name + "(" + lutemonTwo.color + ") " + " hyökkää ja" + lutemonOne.name + "(" + lutemonOne.color + ") puolustautuu hyökkäykseltä.");
+            lutemonOne.defense(lutemonTwo);
+
+        }
+
+        if (lutemonOne.health < 0) {
+            System.out.println(lutemonOne.name + " (" + lutemonOne.color + ") kuoli haavoihinsa.");
+            System.out.println(lutemonTwo + " voitti taistelun!");
+        }
+        else if (lutemonTwo.health < 0) {
+            System.out.println(lutemonTwo.name + " (" + lutemonTwo.color + ") kuoli haavoihinsa.");
+            System.out.println(lutemonOne + " voitti taistelun!");
+        }
+
 
     }
 

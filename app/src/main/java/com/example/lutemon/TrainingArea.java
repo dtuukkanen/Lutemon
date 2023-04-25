@@ -19,9 +19,8 @@ public class TrainingArea extends Storage{
         return trainingArea;
     }
 
-    public void train() {
-
-
+    public void train(Lutemon lutemon) {
+        lutemon.experience += 1;
     }
 
     @Override
