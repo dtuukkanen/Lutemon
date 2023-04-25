@@ -24,4 +24,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListActivity.class);
         startActivity(intent);
     }
+
+    public void switchToCreation(View view) {
+        Intent intent = new Intent(this, CreateLutemonActivity.class);
+        startActivity(intent);
+    }
+
+
 }

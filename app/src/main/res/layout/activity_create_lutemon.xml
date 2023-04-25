@@ -52,7 +52,7 @@
         android:layout_height="66dp"
         android:layout_marginTop="51dp"
         android:ems="10"
-        android:hint="Anna Lutemonin nimi"
+        android:hint="Anna Lutemonin nimi..."
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +65,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Luo Lutemon"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        app:layout_constraintVertical_bias="0.025" />
 </androidx.constraintlayout.widget.ConstraintLayout>
