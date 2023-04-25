@@ -12,8 +12,11 @@ public class Storage {
 
     protected String name;
     protected ArrayList<Lutemon> lutemons = new ArrayList<>();
+    public Storage(String name) {
+        this.name = name;
+    }
 
-    private static Storage storage = null;
+    /*private static Storage storage = null;
 
     public Storage() {}
 
@@ -26,7 +29,7 @@ public class Storage {
             storage = new Storage();
         }
         return storage;
-    }
+    }*/
 
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
