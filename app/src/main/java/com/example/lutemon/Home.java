@@ -9,7 +9,7 @@ public class Home extends Storage{
     protected ArrayList<Lutemon> lutemons = new ArrayList<>();
 
     public Home(String name) {
-        super("Koti");
+        super();
     }
 
     public static Home getInstance() {
