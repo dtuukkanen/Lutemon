@@ -31,20 +31,21 @@ public class CreateLutemonActivity extends AppCompatActivity {
         ++id;
         name = editName.getText().toString();
 
+
         if (rbArmatuuri.isChecked()) {
-            Home.getInstance().createLutemon(new Armatuuri(name, id));
+            Home.createLutemon(new Armatuuri(name, id));
         }
         else if (rbSatky.isChecked()) {
-            Home.getInstance().createLutemon(new Satky(name, id));
+            Home.createLutemon(new Satky(name, id));
         }
         else if (rbLateksii.isChecked()) {
-            Home.getInstance().createLutemon(new Lateksii(name, id));
+            Home.createLutemon(new Lateksii(name, id));
         }
         else if (rbKrk.isChecked()) {
-            Home.getInstance().createLutemon(new KRK(name, id));
+            Home.createLutemon(new KRK(name, id));
         }
         else if (rbKetek.isChecked()) {
-            Home.getInstance().createLutemon(new KeTek(name, id));
+            Home.createLutemon(new KeTek(name, id));
         }
     }
 }

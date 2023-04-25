@@ -7,14 +7,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Storage {
-
-
+public abstract class Storage {
     protected String name;
-    protected ArrayList<Lutemon> lutemons = new ArrayList<>();
-    public Storage(String name) {
-        this.name = name;
-    }
+    protected static ArrayList<Lutemon> lutemons = new ArrayList<>();
 
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
@@ -24,16 +19,11 @@ public class Storage {
         return lutemons.get(id);
     }
 
-    public ArrayList<Lutemon> getLutemons() {
+    public ArrayList<Lutemon> listLutemons() {
         return lutemons;
     }
 
-    public void listLutemons() {
-        for (Lutemon lutemon : lutemons) {
-
-        }
-    }
-
+    /*
     public void saveLutemons(Context context) {
         try {
             ObjectOutputStream saveLutemon = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
@@ -55,5 +45,6 @@ public class Storage {
             System.out.println("Lutemonien lataaminen epäonnistui.");
         }
     }
+    */
 
 }

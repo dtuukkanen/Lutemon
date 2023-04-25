@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*
     public void loadLutemons(View view) {
         Home.getInstance().loadLutemons(getApplicationContext());
-    }
+    }*/
 
     public void switchToBattle(View view) {
         Intent intent = new Intent(this, BattleActivity.class);
