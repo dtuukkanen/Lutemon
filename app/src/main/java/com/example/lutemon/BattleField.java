@@ -1,9 +1,5 @@
 package com.example.lutemon;
 
-public class BattleField extends Storage{
-    public void fight() {
-
-
-
-    }
+public class BattleField extends LutemonHabitat{
+    public void fight() {}
 }

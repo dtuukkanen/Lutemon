@@ -1,6 +1,6 @@
 package com.example.lutemon;
 
-public class TrainingArea extends Storage{
+public class TrainingArea extends LutemonHabitat{
 
     public static void train() {
         for (Lutemon lutemon : lutemons) {
