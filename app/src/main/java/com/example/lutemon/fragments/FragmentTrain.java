@@ -73,11 +73,11 @@ public class FragmentTrain extends Fragment {
         moveLutemons = view.findViewById(R.id.btnMove);
 
         recyclerView = view.findViewById(R.id.rvHome);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveLutemonsToOtherList(view);
+                moveLutemonsToOtherLocation(view);
             }
         });
         return view;
@@ -86,10 +86,10 @@ public class FragmentTrain extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        recyclerView.getAdapter().notifyDataSetChanged();
+        //recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    public void moveLutemonsToOtherList(View view) {
+    public void moveLutemonsToOtherLocation(View view) {
         if (moveToTrain.isChecked()) {
 
         }
