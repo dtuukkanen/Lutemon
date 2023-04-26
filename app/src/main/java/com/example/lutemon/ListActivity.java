@@ -1,7 +1,5 @@
 package com.example.lutemon;
 
-import static com.example.lutemon.LutemonHabitat.getLutemons;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +16,7 @@ public class ListActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rvList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonViewAdapter(getApplicationContext(), getLutemons()));
+        recyclerView.setAdapter(new LutemonViewAdapter(getApplicationContext(), Storage.getInstance().getLutemons()));
 
     }
 }

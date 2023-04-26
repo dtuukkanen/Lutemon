@@ -3,7 +3,7 @@ package com.example.lutemon;
 import java.util.ArrayList;
 
 public abstract class LutemonHabitat {
-    protected static ArrayList<Lutemon> lutemons = new ArrayList<>();
+    protected ArrayList<Lutemon> lutemons = new ArrayList<>();
 
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
@@ -13,7 +13,7 @@ public abstract class LutemonHabitat {
         lutemons.remove(lutemon);
     }
 
-    public static ArrayList<Lutemon> getLutemons() {
+    public ArrayList<Lutemon> getLutemons() {
         return lutemons;
     }
 }

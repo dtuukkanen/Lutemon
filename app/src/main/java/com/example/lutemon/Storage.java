@@ -8,13 +8,25 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Storage {
-    private ArrayList<Lutemon> home = new ArrayList<>();
-    private ArrayList<Lutemon> battlefield = new ArrayList<>();
-    private ArrayList<Lutemon> training = new ArrayList<>();
+    private Home home = new Home();
+    private BattleField battlefield = new BattleField();
+    private TrainingArea training = new TrainingArea();
     private static Storage storage = null;
 
     public Storage() {
 
+    }
+
+    public Home getHome() {
+        return home;
+    }
+
+    public BattleField getBattlefield() {
+        return battlefield;
+    }
+
+    public TrainingArea getTraining() {
+        return training;
     }
 
     public static Storage getInstance() {
@@ -26,34 +38,34 @@ public class Storage {
 
     public ArrayList<Lutemon> getLutemons() {
         ArrayList<Lutemon> lutemons = new ArrayList<>();
-        lutemons.addAll(home);
-        lutemons.addAll(battlefield);
-        lutemons.addAll(training);
+        lutemons.addAll(Storage.getInstance().getHome().getLutemons());
+        lutemons.addAll(Storage.getInstance().getBattlefield().getLutemons());
+        lutemons.addAll(Storage.getInstance().getTraining().getLutemons());
         return lutemons;
     }
 
     public void moveLutemon(Location from, Location to, Lutemon lutemon) {
         switch (from) {
             case HOME:
-                home.remove(lutemon);
+                home.removeLutemon(lutemon);
                 break;
             case TRAINING:
-                training.remove(lutemon);
+                training.removeLutemon(lutemon);
                 break;
             case BATTLEFIELD:
-                battlefield.remove(lutemon);
+                battlefield.removeLutemon(lutemon);
                 break;
         }
 
         switch (to) {
             case HOME:
-                home.add(lutemon);
+                home.addLutemon(lutemon);
                 break;
             case TRAINING:
-                training.add(lutemon);
+                training.addLutemon(lutemon);
                 break;
             case BATTLEFIELD:
-                battlefield.add(lutemon);
+                battlefield.addLutemon(lutemon);
                 break;
         }
     }
