@@ -3,6 +3,8 @@ package com.example.lutemon.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +18,7 @@ import com.example.lutemon.R;
  * create an instance of this fragment.
  */
 public class FragmentBattle extends Fragment {
-
+    RecyclerView recyclerView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,6 +63,11 @@ public class FragmentBattle extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_battle, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = view.findViewById(R.id.rvHome);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //recyclerView.setAdapter(new);
+
+        return view;
     }
 }
