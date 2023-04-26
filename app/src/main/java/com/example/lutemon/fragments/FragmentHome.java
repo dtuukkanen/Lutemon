@@ -12,8 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.example.lutemon.CheckboxAdapter;
 import com.example.lutemon.LutemonViewAdapter;
+import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.R;
+import com.example.lutemon.Storage;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,7 @@ import com.example.lutemon.R;
 public class FragmentHome extends Fragment {
 
     private RecyclerView recyclerView;
+    private CheckboxAdapter checkboxAdapter;
     private RadioButton moveToTrain, moveToBattle;
     private Button moveLutemons;
 
@@ -77,8 +83,9 @@ public class FragmentHome extends Fragment {
         moveLutemons = view.findViewById(R.id.btnMove);
 
         recyclerView = view.findViewById(R.id.rvHome);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //recyclerView.setAdapter(new LutemonViewAdapter());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getHome().getLutemons());
+        recyclerView.setAdapter(checkboxAdapter);
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,15 +99,21 @@ public class FragmentHome extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
     public void moveLutemonsToOtherLocation(View view) {
-        if (moveToTrain.isChecked()) {
+        ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
+        System.out.println(checkedLutemons.size());
 
+        for (Lutemon lutemon : checkedLutemons) {
+            if (moveToTrain.isChecked()) {
+                Storage.getInstance().moveLutemon(Storage.Location.HOME, Storage.Location.TRAINING, lutemon);
+            }
+            else if (moveToBattle.isChecked()) {
+                Storage.getInstance().moveLutemon(Storage.Location.HOME, Storage.Location.BATTLEFIELD, lutemon);            }
         }
-        else if (moveToBattle.isChecked()) {
-
-        }
+        System.out.println(Storage.getInstance().getTraining().getLutemons().size());
+        checkboxAdapter.notifyDataSetChanged();
     }
 }

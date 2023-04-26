@@ -12,10 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.example.lutemon.CheckboxAdapter;
+import com.example.lutemon.CheckboxHolder;
 import com.example.lutemon.Lutemons.KRK;
 import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +28,8 @@ import com.example.lutemon.Storage;
  */
 public class FragmentBattle extends Fragment {
     RecyclerView recyclerView;
-    private RadioButton moveToHome, moveToBattle;
+    private RadioButton moveToHome, moveToTrain;
+    private CheckboxAdapter checkboxAdapter;
     private Button moveLutemons;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,13 +77,14 @@ public class FragmentBattle extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         moveToHome = view.findViewById(R.id.rbHome);
-        moveToBattle = view.findViewById(R.id.rbBattle);
+        moveToTrain = view.findViewById(R.id.rbBattle);
         moveLutemons = view.findViewById(R.id.btnMove);
 
 
         recyclerView = view.findViewById(R.id.rvHome);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        //recyclerView.setAdapter(new);
+        checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getBattlefield().getLutemons());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(checkboxAdapter);
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +98,7 @@ public class FragmentBattle extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
 
@@ -102,13 +108,24 @@ public class FragmentBattle extends Fragment {
     }
 
     public void moveLutemonsToOtherLocation(View view) {
-        Storage S = Storage.getInstance();
+
+        ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
+
+        for (Lutemon lutemon : checkedLutemons) {
+            if (moveToHome.isChecked()) {
+                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.HOME, lutemon);
+            }
+            else if (moveToTrain.isChecked()) {
+                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.TRAINING, lutemon);            }
+        }
+    }
+}
+
+/*Storage S = Storage.getInstance();
         Lutemon lutemon = getCheckedLutemon();
         if (moveToHome.isChecked()) {
             S.moveLutemon(Storage.Location.TRAINING, Storage.Location.HOME, lutemon);
         }
         else if (moveToBattle.isChecked()) {
             S.moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
-        }
-    }
-}
+        }*/

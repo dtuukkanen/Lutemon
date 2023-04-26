@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.example.lutemon.CheckboxAdapter;
 import com.example.lutemon.R;
+import com.example.lutemon.Storage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,7 +75,8 @@ public class FragmentTrain extends Fragment {
         moveLutemons = view.findViewById(R.id.btnMove);
 
         recyclerView = view.findViewById(R.id.rvHome);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(new CheckboxAdapter(getContext(), Storage.getInstance().getTraining().getLutemons()));
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +89,7 @@ public class FragmentTrain extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 
     public void moveLutemonsToOtherLocation(View view) {
