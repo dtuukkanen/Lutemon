@@ -74,12 +74,12 @@ public class FragmentBattle extends Fragment {
 
 
         recyclerView = view.findViewById(R.id.rvHome);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         //recyclerView.setAdapter(new);
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveLutemonsToOtherList(view);
+                moveLutemonsToOtherLocation(view);
             }
         });
 
@@ -89,10 +89,10 @@ public class FragmentBattle extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        recyclerView.getAdapter().notifyDataSetChanged();
+        //recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    public void moveLutemonsToOtherList(View view) {
+    public void moveLutemonsToOtherLocation(View view) {
         if (moveToHome.isChecked()) {
 
         }
