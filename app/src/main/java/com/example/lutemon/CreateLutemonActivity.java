@@ -13,6 +13,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
     private EditText editName;
     private String name;
     private int id = -1;
+    private Lutemon lutemon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +34,20 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
 
         if (rbArmatuuri.isChecked()) {
-            Home.createLutemon(new Armatuuri(name, id));
+            lutemon = new Armatuuri(name, id);
         }
         else if (rbSatky.isChecked()) {
-            Home.createLutemon(new Satky(name, id));
+            lutemon = new Satky(name, id);
         }
         else if (rbLateksii.isChecked()) {
-            Home.createLutemon(new Lateksii(name, id));
+            lutemon = new Lateksii(name, id);
         }
         else if (rbKrk.isChecked()) {
-            Home.createLutemon(new KRK(name, id));
+           lutemon = new KRK(name, id);
         }
         else if (rbKetek.isChecked()) {
-            Home.createLutemon(new KeTek(name, id));
+            lutemon = new KeTek(name, id);
         }
+        Home.createLutemon(lutemon);
     }
 }

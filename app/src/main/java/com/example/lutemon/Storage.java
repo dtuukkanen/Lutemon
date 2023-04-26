@@ -7,21 +7,41 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public abstract class Storage {
-    protected String name;
-    protected static ArrayList<Lutemon> lutemons = new ArrayList<>();
+public class Storage {
+    private ArrayList<Lutemon> home = new ArrayList<>();
+    private ArrayList<Lutemon> battlefield = new ArrayList<>();
+    private ArrayList<Lutemon> training = new ArrayList<>();
+    private static Storage storage = null;
 
-    public void addLutemon(Lutemon lutemon) {
-        lutemons.add(lutemon);
+    public Storage() {
+
     }
 
-    public Lutemon getLutemon(int id) {
-        return lutemons.get(id);
+    public static Storage getInstance() {
+        if (storage == null) {
+            storage = new Storage();
+        }
+        return storage;
     }
 
-    public ArrayList<Lutemon> listLutemons() {
+    public ArrayList<Lutemon> getLutemons() {
+        ArrayList<Lutemon> lutemons = new ArrayList<>();
+        lutemons.addAll(home);
+        lutemons.addAll(battlefield);
+        lutemons.addAll(training);
         return lutemons;
     }
+
+    public void moveLutemon(Location from, Location to, Lutemon lutemon) {
+        //Toteutus tähän
+    }
+
+    public enum Location {
+        HOME,
+        BATTLEFIELD,
+        TRAINING,
+    }
+
 
     /*
     public void saveLutemons(Context context) {
