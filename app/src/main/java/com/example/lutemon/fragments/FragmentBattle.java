@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.R;
+import com.example.lutemon.Storage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,12 +94,20 @@ public class FragmentBattle extends Fragment {
         //recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    public void moveLutemonsToOtherLocation(View view) {
-        if (moveToHome.isChecked()) {
 
+    /*private Lutemon getCheckedLutemon() {
+
+        return lutemon;
+    }
+
+    public void moveLutemonsToOtherLocation(View view) {
+        Storage S = Storage.getInstance();
+        Lutemon lutemon = getCheckedLutemon();
+        if (moveToHome.isChecked()) {
+            S.moveLutemon(Storage.Location.TRAINING, Storage.Location.HOME, lutemon);
         }
         else if (moveToBattle.isChecked()) {
-
+            S.moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
         }
-    }
+    }*/
 }
