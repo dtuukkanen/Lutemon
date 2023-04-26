@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.example.lutemon.Lutemons.Armatuuri;
+import com.example.lutemon.Lutemons.KRK;
+import com.example.lutemon.Lutemons.KeTek;
+import com.example.lutemon.Lutemons.Lateksii;
+import com.example.lutemon.Lutemons.Satky;
+
 public class CreateLutemonActivity extends AppCompatActivity {
 
     private RadioButton rbArmatuuri, rbSatky, rbLateksii, rbKrk, rbKetek;

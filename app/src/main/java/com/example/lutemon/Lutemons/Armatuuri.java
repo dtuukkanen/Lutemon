@@ -1,6 +1,9 @@
-package com.example.lutemon;
+package com.example.lutemon.Lutemons;
 
-public class Armatuuri extends Lutemon{
+import com.example.lutemon.Lutemon;
+import com.example.lutemon.R;
+
+public class Armatuuri extends Lutemon {
 
 
     public Armatuuri(String name, int id) {
