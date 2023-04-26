@@ -42,19 +42,25 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
         if (rbArmatuuri.isChecked()) {
             lutemon = new Armatuuri(name, id);
+            rbArmatuuri.setChecked(false);
         }
         else if (rbSatky.isChecked()) {
             lutemon = new Satky(name, id);
+            rbSatky.setChecked(false);
         }
         else if (rbLateksii.isChecked()) {
             lutemon = new Lateksii(name, id);
+            rbLateksii.setChecked(false);
         }
         else if (rbKrk.isChecked()) {
            lutemon = new KRK(name, id);
+            rbKrk.setChecked(false);
         }
         else if (rbKetek.isChecked()) {
             lutemon = new KeTek(name, id);
+            rbKetek.setChecked(false);
         }
+        editName.setText("");
         Storage.getInstance().getHome().createLutemon(lutemon);
     }
 }
