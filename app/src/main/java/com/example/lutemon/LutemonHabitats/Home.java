@@ -2,7 +2,9 @@ package com.example.lutemon.LutemonHabitats;
 
 import com.example.lutemon.Lutemons.Lutemon;
 
-public class Home extends LutemonHabitat {
+import java.io.Serializable;
+
+public class Home extends LutemonHabitat implements Serializable {
 
     public void createLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
