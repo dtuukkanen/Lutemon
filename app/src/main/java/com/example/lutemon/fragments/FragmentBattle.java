@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.example.lutemon.Lutemons.KRK;
 import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
@@ -95,8 +96,8 @@ public class FragmentBattle extends Fragment {
     }
 
 
-    /*private Lutemon getCheckedLutemon() {
-
+    private Lutemon getCheckedLutemon() {
+        Lutemon lutemon = new KRK("Aapo", 9999); // poistettava
         return lutemon;
     }
 
@@ -109,5 +110,5 @@ public class FragmentBattle extends Fragment {
         else if (moveToBattle.isChecked()) {
             S.moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
         }
-    }*/
+    }
 }
