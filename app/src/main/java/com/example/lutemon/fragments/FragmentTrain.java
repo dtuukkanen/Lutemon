@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
 
 import com.example.lutemon.R;
 
@@ -19,6 +21,8 @@ import com.example.lutemon.R;
  */
 public class FragmentTrain extends Fragment {
     RecyclerView recyclerView;
+    private RadioButton moveToHome, moveToTrain;
+    private Button moveLutemons;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,9 +68,33 @@ public class FragmentTrain extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        moveToTrain = view.findViewById(R.id.rbHome);
+        moveToHome = view.findViewById(R.id.rbBattle);
+        moveLutemons = view.findViewById(R.id.btnMove);
+
         recyclerView = view.findViewById(R.id.rvHome);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        moveLutemons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moveLutemonsToOtherList(view);
+            }
+        });
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
+    public void moveLutemonsToOtherList(View view) {
+        if (moveToTrain.isChecked()) {
+
+        }
+        else if (moveToHome.isChecked()) {
+
+        }
     }
 }
