@@ -1,4 +1,4 @@
-package com.example.lutemon;
+package com.example.lutemon.Lutemons;
 
 import java.io.Serializable;
 

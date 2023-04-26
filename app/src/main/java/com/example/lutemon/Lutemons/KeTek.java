@@ -1,6 +1,5 @@
 package com.example.lutemon.Lutemons;
 
-import com.example.lutemon.Lutemon;
 import com.example.lutemon.R;
 
 public class KeTek extends Lutemon {

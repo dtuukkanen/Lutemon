@@ -11,6 +11,7 @@ import com.example.lutemon.Lutemons.Armatuuri;
 import com.example.lutemon.Lutemons.KRK;
 import com.example.lutemon.Lutemons.KeTek;
 import com.example.lutemon.Lutemons.Lateksii;
+import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.Lutemons.Satky;
 
 public class CreateLutemonActivity extends AppCompatActivity {

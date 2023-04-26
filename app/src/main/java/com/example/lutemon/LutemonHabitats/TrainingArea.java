@@ -1,6 +1,6 @@
-package com.example.lutemon;
+package com.example.lutemon.LutemonHabitats;
 
-public class TrainingArea extends LutemonHabitat{
+public class TrainingArea extends LutemonHabitat {
 
     public static void train() {
         /*
