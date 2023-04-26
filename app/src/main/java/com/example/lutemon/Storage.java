@@ -33,13 +33,41 @@ public class Storage {
     }
 
     public void moveLutemon(Location from, Location to, Lutemon lutemon) {
-        //Toteutus tähän
+        ArrayList<Lutemon> listFrom = null;
+        ArrayList<Lutemon> listTo = null;
+
+        switch (from) {
+            case HOME:
+                listFrom = home;
+                break;
+            case TRAINING:
+                listFrom = training;
+                break;
+            case BATTLEFIELD:
+                listFrom = battlefield;
+                break;
+        }
+
+        switch (to) {
+            case HOME:
+                listTo = home;
+                break;
+            case TRAINING:
+                listTo = training;
+                break;
+            case BATTLEFIELD:
+                listTo = battlefield;
+                break;
+        }
+
+        listTo.add(lutemon);
+        listFrom.remove(lutemon);
     }
 
     public enum Location {
         HOME,
-        BATTLEFIELD,
         TRAINING,
+        BATTLEFIELD,
     }
 
 

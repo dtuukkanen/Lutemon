@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public abstract class LutemonHabitat {
     protected static ArrayList<Lutemon> lutemons = new ArrayList<>();
-    private static LutemonHabitat habitat = null;
 
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
