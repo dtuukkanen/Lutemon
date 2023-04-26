@@ -2,9 +2,10 @@ package com.example.lutemon.LutemonHabitats;
 
 import com.example.lutemon.Lutemons.Lutemon;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class LutemonHabitat {
+public abstract class LutemonHabitat implements Serializable {
     protected ArrayList<Lutemon> lutemons = new ArrayList<>();
 
     public void addLutemon(Lutemon lutemon) {

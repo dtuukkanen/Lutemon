@@ -1,10 +1,15 @@
 package com.example.lutemon;
 
+import android.content.Context;
+
 import com.example.lutemon.LutemonHabitats.BattleField;
 import com.example.lutemon.LutemonHabitats.Home;
 import com.example.lutemon.LutemonHabitats.TrainingArea;
 import com.example.lutemon.Lutemons.Lutemon;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Storage {
@@ -76,13 +81,17 @@ public class Storage {
         BATTLEFIELD,
     }
 
-
-    /*
     public void saveLutemons(Context context) {
         try {
-            ObjectOutputStream saveLutemon = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
-            saveLutemon.writeObject(lutemons);
-            saveLutemon.close();
+            ObjectOutputStream saveLutemonHome = new ObjectOutputStream(context.openFileOutput("LutemonsHome.data", Context.MODE_PRIVATE));
+            saveLutemonHome.writeObject(Storage.getInstance().getHome());
+            saveLutemonHome.close();
+            ObjectOutputStream saveLutemonTraining = new ObjectOutputStream(context.openFileOutput("LutemonsTraining.data", Context.MODE_PRIVATE));
+            saveLutemonTraining.writeObject(Storage.getInstance().getTraining());
+            saveLutemonTraining.close();
+            ObjectOutputStream saveLutemonBattlefield = new ObjectOutputStream(context.openFileOutput("LutemonsBattlefield.data", Context.MODE_PRIVATE));
+            saveLutemonBattlefield.writeObject(Storage.getInstance().getBattlefield());
+            saveLutemonBattlefield.close();
         } catch (IOException e) {
             System.out.println("Lutemonin tallentaminen epäonnistui.");
         }
@@ -90,15 +99,21 @@ public class Storage {
 
     public void loadLutemons(Context context) {
         try {
-            ObjectInputStream loadLutemons = new ObjectInputStream(context.openFileInput("lutemons.data"));
-            lutemons = (ArrayList<Lutemon>) loadLutemons.readObject();
-            loadLutemons.close();
+            ObjectInputStream loadLutemonsHome = new ObjectInputStream(context.openFileInput("LutemonsHome.data"));
+            home = (Home) loadLutemonsHome.readObject();
+            loadLutemonsHome.close();
+            ObjectInputStream loadLutemonsTraining = new ObjectInputStream(context.openFileInput("LutemonsTraining.data"));
+            training = (TrainingArea) loadLutemonsTraining.readObject();
+            loadLutemonsTraining.close();
+            ObjectInputStream loadLutemonsBattlefield = new ObjectInputStream(context.openFileInput("LutemonsBattlefield.data"));
+            battlefield = (BattleField) loadLutemonsBattlefield.readObject();
+            loadLutemonsBattlefield.close();
         } catch (IOException e) {
             System.out.println("Lutemonien lataaminen epäonnistui.");
         } catch (ClassNotFoundException e) {
             System.out.println("Lutemonien lataaminen epäonnistui.");
         }
     }
-    */
+
 
 }

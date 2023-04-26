@@ -60,7 +60,8 @@ public class CreateLutemonActivity extends AppCompatActivity {
             lutemon = new KeTek(name, id);
             rbKetek.setChecked(false);
         }
-        editName.setText("");
         Storage.getInstance().getHome().createLutemon(lutemon);
+        Storage.getInstance().saveLutemons(view.getContext());
+        editName.setText("");
     }
 }
