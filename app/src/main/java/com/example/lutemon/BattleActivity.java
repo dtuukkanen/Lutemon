@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.lutemon.Lutemons.Lutemon;
 
@@ -39,10 +40,11 @@ public class BattleActivity extends AppCompatActivity {
 
     public void fight() {
         ArrayList<Lutemon> checkedLutemons = battleViewAdapter.getCheckedLutemons();
-        Lutemon lutemonOne = checkedLutemons.get(0);
-        Lutemon lutemonTwo = checkedLutemons.get(1);
         if (checkedLutemons.size() == 2) {
+            Lutemon lutemonOne = checkedLutemons.get(0);
+            Lutemon lutemonTwo = checkedLutemons.get(1);
             Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
+            Toast.makeText(this, "Taistelu alkoi!", Toast.LENGTH_LONG).show();
         }
     }
 }

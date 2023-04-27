@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.lutemon.Lutemons.Armatuuri;
 import com.example.lutemon.Lutemons.KRK;
@@ -63,5 +64,6 @@ public class CreateLutemonActivity extends AppCompatActivity {
         Storage.getInstance().getHome().createLutemon(lutemon);
         Storage.getInstance().saveLutemons(view.getContext());
         editName.setText("");
+        Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
     }
 }

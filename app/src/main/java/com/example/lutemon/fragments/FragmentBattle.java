@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.lutemon.CheckboxAdapter;
 import com.example.lutemon.CheckboxHolder;
@@ -117,5 +118,6 @@ public class FragmentBattle extends Fragment {
         }
         checkboxAdapter.notifyDataSetChanged();
         Storage.getInstance().saveLutemons(view.getContext());
+        Toast.makeText(getContext(), "Lutemonit siirretty!", Toast.LENGTH_LONG).show();
     }
 }
