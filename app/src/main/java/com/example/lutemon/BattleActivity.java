@@ -41,6 +41,8 @@ public class BattleActivity extends AppCompatActivity {
         ArrayList<Lutemon> checkedLutemons = battleViewAdapter.getCheckedLutemons();
         Lutemon lutemonOne = checkedLutemons.get(0);
         Lutemon lutemonTwo = checkedLutemons.get(1);
-        Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
+        if (checkedLutemons.size() == 2) {
+            Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
+        }
     }
 }
