@@ -6,7 +6,7 @@ import com.example.lutemon.Storage;
 import java.io.Serializable;
 
 public class BattleField extends LutemonHabitat implements Serializable {
-    public void fight(Lutemon lutemon1, Lutemon lutemon2) {
+    public StringBuilder fight(Lutemon lutemon1, Lutemon lutemon2) {
 
         StringBuilder sb = new StringBuilder();
         sb.append("1: " + lutemon1.getName() + " (" + lutemon1.getColor() + ") att: " + lutemon1.getAttack() + "; def: " + lutemon1.getDefence() + "; exp: " + lutemon1.getExperience()  + "; health: " + lutemon1.getHealth() + "/" + lutemon1.getMaxHealth() + "\n");
@@ -34,5 +34,6 @@ public class BattleField extends LutemonHabitat implements Serializable {
                 break;
             }
         }
+        return sb;
     }
 }

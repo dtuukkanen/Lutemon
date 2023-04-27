@@ -22,6 +22,7 @@ public class BattleActivity extends AppCompatActivity {
     private Button fightButton;
     private TextView battleLog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +45,13 @@ public class BattleActivity extends AppCompatActivity {
 
     public void fight() {
         ArrayList<Lutemon> checkedLutemons = battleViewAdapter.getCheckedLutemons();
+        StringBuilder sb = null;
         if (checkedLutemons.size() == 2) {
             Lutemon lutemonOne = checkedLutemons.get(0);
             Lutemon lutemonTwo = checkedLutemons.get(1);
-            Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
+            sb = Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
             Toast.makeText(this, "Taistelu alkoi!", Toast.LENGTH_LONG).show();
-            //battleLog.setText();
+            battleLog.setText(sb);
         }
     }
 }
