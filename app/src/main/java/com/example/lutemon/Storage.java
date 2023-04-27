@@ -3,6 +3,7 @@ package com.example.lutemon;
 import android.content.Context;
 
 import com.example.lutemon.LutemonHabitats.BattleField;
+import com.example.lutemon.LutemonHabitats.Dead;
 import com.example.lutemon.LutemonHabitats.Home;
 import com.example.lutemon.LutemonHabitats.TrainingArea;
 import com.example.lutemon.Lutemons.Lutemon;
@@ -16,6 +17,7 @@ public class Storage {
     private Home home = new Home();
     private BattleField battlefield = new BattleField();
     private TrainingArea training = new TrainingArea();
+    private Dead dead = new Dead();
     private static Storage storage = null;
 
     public Storage() {
@@ -32,6 +34,10 @@ public class Storage {
 
     public TrainingArea getTraining() {
         return training;
+    }
+
+    public Dead getDead() {
+        return dead;
     }
 
     public static Storage getInstance() {
@@ -72,6 +78,8 @@ public class Storage {
             case BATTLEFIELD:
                 battlefield.addLutemon(lutemon);
                 break;
+            case DEAD:
+                dead.addLutemon(lutemon);
         }
     }
 
@@ -79,19 +87,27 @@ public class Storage {
         HOME,
         TRAINING,
         BATTLEFIELD,
+        DEAD,
     }
 
     public void saveLutemons(Context context) {
         try {
+            // Save home
             ObjectOutputStream saveLutemonHome = new ObjectOutputStream(context.openFileOutput("LutemonsHome.data", Context.MODE_PRIVATE));
             saveLutemonHome.writeObject(Storage.getInstance().getHome());
             saveLutemonHome.close();
+            // Save training
             ObjectOutputStream saveLutemonTraining = new ObjectOutputStream(context.openFileOutput("LutemonsTraining.data", Context.MODE_PRIVATE));
             saveLutemonTraining.writeObject(Storage.getInstance().getTraining());
             saveLutemonTraining.close();
+            // Save battlefield
             ObjectOutputStream saveLutemonBattlefield = new ObjectOutputStream(context.openFileOutput("LutemonsBattlefield.data", Context.MODE_PRIVATE));
             saveLutemonBattlefield.writeObject(Storage.getInstance().getBattlefield());
             saveLutemonBattlefield.close();
+            //Save dead
+            ObjectOutputStream saveLutemonDead = new ObjectOutputStream(context.openFileOutput("LutemonsDead.data", Context.MODE_PRIVATE));
+            saveLutemonDead.writeObject(Storage.getInstance().getDead());
+            saveLutemonDead.close();
         } catch (IOException e) {
             System.out.println("Lutemonin tallentaminen epäonnistui.");
         }
@@ -99,15 +115,22 @@ public class Storage {
 
     public void loadLutemons(Context context) {
         try {
+            // Load home
             ObjectInputStream loadLutemonsHome = new ObjectInputStream(context.openFileInput("LutemonsHome.data"));
             home = (Home) loadLutemonsHome.readObject();
             loadLutemonsHome.close();
+            // Load training
             ObjectInputStream loadLutemonsTraining = new ObjectInputStream(context.openFileInput("LutemonsTraining.data"));
             training = (TrainingArea) loadLutemonsTraining.readObject();
             loadLutemonsTraining.close();
+            // Load battlefield
             ObjectInputStream loadLutemonsBattlefield = new ObjectInputStream(context.openFileInput("LutemonsBattlefield.data"));
             battlefield = (BattleField) loadLutemonsBattlefield.readObject();
             loadLutemonsBattlefield.close();
+            // Load dead
+            ObjectInputStream loadLutemonsDead = new ObjectInputStream(context.openFileInput("LutemonsDead.data"));
+            dead = (Dead) loadLutemonsBattlefield.readObject();
+            loadLutemonsDead.close();
         } catch (IOException e) {
             System.out.println("Lutemonien lataaminen epäonnistui.");
         } catch (ClassNotFoundException e) {
