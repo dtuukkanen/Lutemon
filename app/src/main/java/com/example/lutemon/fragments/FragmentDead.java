@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lutemon.LutemonViewAdapter;
 import com.example.lutemon.R;
+import com.example.lutemon.Storage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +21,7 @@ import com.example.lutemon.R;
  */
 public class FragmentDead extends Fragment {
     RecyclerView recyclerView;
+    LutemonViewAdapter lutemonViewAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,7 +68,9 @@ public class FragmentDead extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dead, container, false);
         recyclerView = view.findViewById(R.id.rvDead);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        lutemonViewAdapter = new LutemonViewAdapter(getContext(), Storage.getInstance().getDead().getLutemons());
+        recyclerView.setAdapter(lutemonViewAdapter);
 
         return view;
     }
@@ -73,6 +78,6 @@ public class FragmentDead extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.getAdapter().notifyDataSetChanged();
     }
 }
