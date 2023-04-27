@@ -74,4 +74,8 @@ public class Lutemon implements Serializable {
     public void addExperience() {
         this.experience += 1;
     }
+
+    public void setHealth(int maxHealth) {
+        health = maxHealth;
+    }
 }

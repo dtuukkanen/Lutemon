@@ -6,6 +6,11 @@ import java.io.Serializable;
 
 public class Home extends LutemonHabitat implements Serializable {
 
+    public void addLutemon(Lutemon lutemon) {
+        lutemon.setHealth(lutemon.getMaxHealth());
+        lutemons.add(lutemon);
+    }
+
     public void createLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
     }
