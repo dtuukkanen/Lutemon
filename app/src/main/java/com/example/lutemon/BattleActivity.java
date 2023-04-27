@@ -5,13 +5,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+
+import com.example.lutemon.Lutemons.Lutemon;
+
+import java.util.ArrayList;
 
 public class BattleActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private CheckBox checkBox;
-    private CheckboxAdapter checkboxAdapter;
+    private BattleViewAdapter battleViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +23,8 @@ public class BattleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_battle);
         recyclerView = findViewById(R.id.rvFighterList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new CheckboxAdapter(getApplicationContext(), Storage.getInstance().getBattlefield().getLutemons()));
+        battleViewAdapter = new BattleViewAdapter(getApplicationContext(), Storage.getInstance().getBattlefield().getLutemons());
+        recyclerView.setAdapter(battleViewAdapter);
 
     }
 }
