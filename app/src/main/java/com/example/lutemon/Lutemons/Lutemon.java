@@ -44,7 +44,9 @@ public class Lutemon implements Serializable {
     public String getColor() {
         return color;
     }
-
+    public int getAttack() {
+        return attack;
+    }
     public int getDefence() {
         return defence;
     }
