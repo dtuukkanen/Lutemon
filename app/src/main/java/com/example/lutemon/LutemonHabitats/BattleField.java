@@ -14,7 +14,7 @@ public class BattleField extends LutemonHabitat implements Serializable {
 
 
         while (true) {
-            sb.append(lutemon1.getName() + "(" + lutemon1.getColor() + ") " + " hyökkää ja" + lutemon2.getName() + "(" + lutemon2.getColor() + ") puolustautuu hyökkäykseltä.\n");
+            sb.append(lutemon1.getName() + "(" + lutemon1.getColor() + ") " + " hyökkää ja " + lutemon2.getName() + "(" + lutemon2.getColor() + ") puolustautuu hyökkäykseltä.\n");
             lutemon1.defense(lutemon2); //Lutemon2 attacks
             if (lutemon1.getHealth() <= 0) {
                 sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ") kuoli haavoihinsa.\n");
@@ -24,7 +24,7 @@ public class BattleField extends LutemonHabitat implements Serializable {
                 break;
             }
 
-            sb.append(lutemon2.getName() + "(" + lutemon2.getColor() + ") " + " hyökkää ja" + lutemon1.getName() + "(" + lutemon1.getColor() + ") puolustautuu hyökkäykseltä.\n");
+            sb.append(lutemon2.getName() + "(" + lutemon2.getColor() + ") " + " hyökkää ja " + lutemon1.getName() + "(" + lutemon1.getColor() + ") puolustautuu hyökkäykseltä.\n");
             lutemon2.defense(lutemon1); //Lutemon 1 attacks
             if (lutemon2.getHealth() <= 0) {
                 sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ") kuoli haavoihinsa.\n");
