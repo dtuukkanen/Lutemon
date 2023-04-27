@@ -29,7 +29,7 @@ public class FragmentTrain extends Fragment {
     RecyclerView recyclerView;
     private CheckboxAdapter checkboxAdapter;
     private RadioGroup rgOptions;
-    private Button moveLutemons;
+    private Button moveLutemons, trainLutemons;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -74,18 +74,27 @@ public class FragmentTrain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_train, container, false);
         moveLutemons = view.findViewById(R.id.btnMove);
+        trainLutemons = view.findViewById(R.id.btnTrain);
         rgOptions = view.findViewById(R.id.rgOptions);
 
-        recyclerView = view.findViewById(R.id.rvHome);
+        recyclerView = view.findViewById(R.id.rvTrain);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getTraining().getLutemons());
         recyclerView.setAdapter(checkboxAdapter);
+
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 moveLutemonsToOtherLocation(view);
+            }
+        });
+
+        trainLutemons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                trainLutemons(view);
             }
         });
         return view;
@@ -111,6 +120,12 @@ public class FragmentTrain extends Fragment {
                     break;
             }
         }
+        Storage.getInstance().saveLutemons(view.getContext());
         checkboxAdapter.notifyDataSetChanged();
+    }
+
+    public void trainLutemons(View view) {
+        Storage.getInstance().getTraining().train();
+        Storage.getInstance().saveLutemons(view.getContext());
     }
 }

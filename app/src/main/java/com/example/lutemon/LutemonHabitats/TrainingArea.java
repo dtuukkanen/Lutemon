@@ -1,11 +1,12 @@
 package com.example.lutemon.LutemonHabitats;
 
+import com.example.lutemon.Lutemons.Lutemon;
+
 public class TrainingArea extends LutemonHabitat {
 
-    public static void train() {
-        /*
+    public void train() {
         for (Lutemon lutemon : lutemons) {
-            lutemon.experience += 1;
-        }*/
+            lutemon.addExperience();
+        }
     }
 }

@@ -69,7 +69,7 @@ public class Lutemon implements Serializable {
         return image;
     }
 
-    public void setExperience(int experience) {
-        this.experience = experience;
+    public void addExperience() {
+        this.experience += 1;
     }
 }
