@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.lutemon.CheckboxAdapter;
 import com.example.lutemon.CheckboxHolder;
@@ -28,7 +29,8 @@ import java.util.ArrayList;
  */
 public class FragmentBattle extends Fragment {
     RecyclerView recyclerView;
-    private RadioButton moveToHome, moveToTrain;
+
+    private RadioGroup rgOptions;
     private CheckboxAdapter checkboxAdapter;
     private Button moveLutemons;
     // TODO: Rename parameter arguments, choose names that match
@@ -76,14 +78,12 @@ public class FragmentBattle extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        moveToHome = view.findViewById(R.id.rbHome);
-        moveToTrain = view.findViewById(R.id.rbBattle);
         moveLutemons = view.findViewById(R.id.btnMove);
-
+        rgOptions = view.findViewById(R.id.rgOptions);
 
         recyclerView = view.findViewById(R.id.rvHome);
-        checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getBattlefield().getLutemons());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getBattlefield().getLutemons());
         recyclerView.setAdapter(checkboxAdapter);
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,11 +106,15 @@ public class FragmentBattle extends Fragment {
         ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
 
         for (Lutemon lutemon : checkedLutemons) {
-            if (moveToHome.isChecked()) {
-                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.HOME, lutemon);
+            switch (rgOptions.getCheckedRadioButtonId()) {
+                case R.id.rbHome:
+                    Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.HOME, lutemon);
+                    break;
+                case R.id.rbTrain:
+                    Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.TRAINING, lutemon);
+                    break;
             }
-            else if (moveToTrain.isChecked()) {
-                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.TRAINING, lutemon);            }
         }
+        checkboxAdapter.notifyDataSetChanged();
     }
 }

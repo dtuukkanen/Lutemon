@@ -30,7 +30,6 @@ public class FragmentHome extends Fragment {
 
     private RecyclerView recyclerView;
     private CheckboxAdapter checkboxAdapter;
-    private RadioButton moveToTrain, moveToBattle;
     private RadioGroup rgOptions;
     private Button moveLutemons;
 
@@ -80,8 +79,6 @@ public class FragmentHome extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        moveToTrain = view.findViewById(R.id.rbHome);
-        moveToBattle = view.findViewById(R.id.rbBattle);
         moveLutemons = view.findViewById(R.id.btnMove);
         rgOptions = view.findViewById(R.id.rgOptions);
 
@@ -113,11 +110,9 @@ public class FragmentHome extends Fragment {
         for (Lutemon lutemon : checkedLutemons) {
             switch (rgOptions.getCheckedRadioButtonId()) {
                 case R.id.rbTrain:
-                    System.out.println("Suorittaa");
                     Storage.getInstance().moveLutemon(Storage.Location.HOME, Storage.Location.TRAINING, lutemon);
                     break;
                 case R.id.rbBattle:
-                    System.out.println("Suorittaa battlen");
                     Storage.getInstance().moveLutemon(Storage.Location.HOME, Storage.Location.BATTLEFIELD, lutemon);
                     break;
             }

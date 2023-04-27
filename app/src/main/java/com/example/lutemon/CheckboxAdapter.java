@@ -47,13 +47,13 @@ public class CheckboxAdapter extends RecyclerView.Adapter<CheckboxHolder> {
     }
 
     public ArrayList<Lutemon> getCheckedLutemons() {
-        ArrayList<Lutemon> checked = new ArrayList<>();
+        ArrayList<Lutemon> lutemonsChecked = new ArrayList<>();
         for (int i = 0; i < lutemons.size(); i++) {
             if (checkedLutemons.get(i)) {
-                checked.add(lutemons.get(i));
+                lutemonsChecked.add(lutemons.get(i));
             }
         }
-        return checked;
+        return lutemonsChecked;
     }
 
 

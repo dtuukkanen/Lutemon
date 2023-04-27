@@ -11,10 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.lutemon.CheckboxAdapter;
+import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.R;
 import com.example.lutemon.Storage;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +27,8 @@ import com.example.lutemon.Storage;
  */
 public class FragmentTrain extends Fragment {
     RecyclerView recyclerView;
-    private RadioButton moveToHome, moveToTrain;
+    private CheckboxAdapter checkboxAdapter;
+    private RadioGroup rgOptions;
     private Button moveLutemons;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,13 +75,13 @@ public class FragmentTrain extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        moveToTrain = view.findViewById(R.id.rbHome);
-        moveToHome = view.findViewById(R.id.rbBattle);
         moveLutemons = view.findViewById(R.id.btnMove);
+        rgOptions = view.findViewById(R.id.rgOptions);
 
         recyclerView = view.findViewById(R.id.rvHome);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new CheckboxAdapter(getContext(), Storage.getInstance().getTraining().getLutemons()));
+        checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getTraining().getLutemons());
+        recyclerView.setAdapter(checkboxAdapter);
         moveLutemons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,11 +98,19 @@ public class FragmentTrain extends Fragment {
     }
 
     public void moveLutemonsToOtherLocation(View view) {
-        if (moveToTrain.isChecked()) {
+        ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
+        System.out.println(checkedLutemons.size());
 
+        for (Lutemon lutemon : checkedLutemons) {
+            switch (rgOptions.getCheckedRadioButtonId()) {
+                case R.id.rbHome:
+                    Storage.getInstance().moveLutemon(Storage.Location.TRAINING, Storage.Location.HOME, lutemon);
+                    break;
+                case R.id.rbBattle:
+                    Storage.getInstance().moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
+                    break;
+            }
         }
-        else if (moveToHome.isChecked()) {
-
-        }
+        checkboxAdapter.notifyDataSetChanged();
     }
 }
