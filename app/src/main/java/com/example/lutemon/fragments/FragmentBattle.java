@@ -101,12 +101,6 @@ public class FragmentBattle extends Fragment {
         recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-
-    private Lutemon getCheckedLutemon() {
-        Lutemon lutemon = new KRK("Aapo", 9999); // poistettava
-        return lutemon;
-    }
-
     public void moveLutemonsToOtherLocation(View view) {
 
         ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
@@ -120,12 +114,3 @@ public class FragmentBattle extends Fragment {
         }
     }
 }
-
-/*Storage S = Storage.getInstance();
-        Lutemon lutemon = getCheckedLutemon();
-        if (moveToHome.isChecked()) {
-            S.moveLutemon(Storage.Location.TRAINING, Storage.Location.HOME, lutemon);
-        }
-        else if (moveToBattle.isChecked()) {
-            S.moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
-        }*/
