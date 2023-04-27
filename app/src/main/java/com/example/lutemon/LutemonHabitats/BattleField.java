@@ -1,22 +1,37 @@
 package com.example.lutemon.LutemonHabitats;
 
 import com.example.lutemon.Lutemons.Lutemon;
+import com.example.lutemon.Storage;
 
 import java.io.Serializable;
 
 public class BattleField extends LutemonHabitat implements Serializable {
     public void fight(Lutemon lutemon1, Lutemon lutemon2) {
-        int i = 1;
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("1: " + lutemon1.getName() + " (" + lutemon1.getColor() + ") att: " + lutemon1.getAttack() + "; def: " + lutemon1.getDefence() + "; exp: " + lutemon1.getExperience()  + "; health: " + lutemon1.getHealth() + "/" + lutemon1.getMaxHealth() + "\n");
+        sb.append("2: " + lutemon2.getName() + " (" + lutemon2.getColor() + ") att: " + lutemon2.getAttack() + "; def: " + lutemon2.getDefence() + "; exp: " + lutemon2.getExperience()  + "; health: " + lutemon2.getHealth() + "/" + lutemon2.getMaxHealth() + "\n");
+
+
         while (true) {
+            sb.append(lutemon1.getName() + "(" + lutemon1.getColor() + ") " + " hyökkää ja" + lutemon2.getName() + "(" + lutemon2.getColor() + ") puolustautuu hyökkäykseltä.\n");
+            lutemon1.defense(lutemon2); //Lutemon2 attacks
             if (lutemon1.getHealth() <= 0) {
-                System.out.println("Lutemon2 voitti");
-            } else if (lutemon2.getHealth() <= 0) {
-                System.out.println("Lutemon1 voitti");
+                sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ") kuoli haavoihinsa.\n");
+                sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ")" + " voitti taistelun!\n");
+                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon1);
+                lutemon2.addExperience();
+                break;
             }
-            if (i % 2 == 0) {
-                lutemon1.defense(lutemon2); //Lutemon2 attacks
-            } else {
-                lutemon2.defense(lutemon1); //Lutemon 1 attacks
+
+            sb.append(lutemon2.getName() + "(" + lutemon2.getColor() + ") " + " hyökkää ja" + lutemon1.getName() + "(" + lutemon1.getColor() + ") puolustautuu hyökkäykseltä.\n");
+            lutemon2.defense(lutemon1); //Lutemon 1 attacks
+            if (lutemon2.getHealth() <= 0) {
+                sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ") kuoli haavoihinsa.\n");
+                sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ")" + " voitti taistelun!\n");
+                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon2);
+                lutemon1.addExperience();
+                break;
             }
         }
     }

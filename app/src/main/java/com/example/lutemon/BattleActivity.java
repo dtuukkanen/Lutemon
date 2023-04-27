@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lutemon.Lutemons.Lutemon;
@@ -19,12 +20,15 @@ public class BattleActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private BattleViewAdapter battleViewAdapter;
     private Button fightButton;
+    private TextView battleLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle);
         fightButton = findViewById(R.id.btnFight);
+        battleLog = findViewById(R.id.tvBattleLog);
+        battleLog.setText("Taisteluloki");
         recyclerView = findViewById(R.id.rvFighterList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         battleViewAdapter = new BattleViewAdapter(getApplicationContext(), Storage.getInstance().getBattlefield().getLutemons());
@@ -45,6 +49,7 @@ public class BattleActivity extends AppCompatActivity {
             Lutemon lutemonTwo = checkedLutemons.get(1);
             Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
             Toast.makeText(this, "Taistelu alkoi!", Toast.LENGTH_LONG).show();
+            //battleLog.setText();
         }
     }
 }
