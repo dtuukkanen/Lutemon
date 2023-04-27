@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 public class BattleField extends LutemonHabitat implements Serializable {
     public StringBuilder fight(Lutemon lutemon1, Lutemon lutemon2) {
-
         StringBuilder sb = new StringBuilder();
         sb.append("1: " + lutemon1.getName() + "  (" + lutemon1.getColor() + ") att: " + lutemon1.getAttack() + "; def: " + lutemon1.getDefence() + "; exp: " + lutemon1.getExperience()  + "; health: " + lutemon1.getHealth() + "/" + lutemon1.getMaxHealth() + "\n");
         sb.append("2: " + lutemon2.getName() + "  (" + lutemon2.getColor() + ") att: " + lutemon2.getAttack() + "; def: " + lutemon2.getDefence() + "; exp: " + lutemon2.getExperience()  + "; health: " + lutemon2.getHealth() + "/" + lutemon2.getMaxHealth() + "\n");
