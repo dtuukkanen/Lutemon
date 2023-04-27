@@ -29,7 +29,12 @@ public class Lutemon implements Serializable {
     }
 
     public void defense(Lutemon lutemon) {
-        health -= (defence - lutemon.getAttack());
+        health -= (lutemon.attack() - defence);
+    }
+
+    public int attack() {
+        attack = attack + experience;
+        return attack;
     }
 
     public String getName() {
@@ -38,11 +43,6 @@ public class Lutemon implements Serializable {
 
     public String getColor() {
         return color;
-    }
-
-    public int getAttack() {
-        attack = attack + experience;
-        return attack;
     }
 
     public int getDefence() {

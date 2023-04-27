@@ -26,5 +26,7 @@ public class BattleActivity extends AppCompatActivity {
         battleViewAdapter = new BattleViewAdapter(getApplicationContext(), Storage.getInstance().getBattlefield().getLutemons());
         recyclerView.setAdapter(battleViewAdapter);
 
+    public void figth(ArrayList<Lutemon> lutemons) {
+        Storage.getInstance().getBattlefield().fight(lutemons.get(0), lutemons.get(1));
     }
 }
