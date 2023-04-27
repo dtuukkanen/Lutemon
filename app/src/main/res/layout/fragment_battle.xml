@@ -7,11 +7,13 @@
     android:background="#D98880">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBattle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top" />
 
     <RadioGroup
+        android:id="@+id/rgOptions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical">

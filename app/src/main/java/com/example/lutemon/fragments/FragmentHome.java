@@ -117,6 +117,7 @@ public class FragmentHome extends Fragment {
                     break;
             }
         }
+        Storage.getInstance().saveLutemons(view.getContext());
         checkboxAdapter.notifyDataSetChanged();
     }
 }

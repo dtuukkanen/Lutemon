@@ -77,11 +77,11 @@ public class FragmentBattle extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_battle, container, false);
         moveLutemons = view.findViewById(R.id.btnMove);
         rgOptions = view.findViewById(R.id.rgOptions);
 
-        recyclerView = view.findViewById(R.id.rvHome);
+        recyclerView = view.findViewById(R.id.rvBattle);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         checkboxAdapter = new CheckboxAdapter(getContext(), Storage.getInstance().getBattlefield().getLutemons());
         recyclerView.setAdapter(checkboxAdapter);
@@ -116,5 +116,6 @@ public class FragmentBattle extends Fragment {
             }
         }
         checkboxAdapter.notifyDataSetChanged();
+        Storage.getInstance().saveLutemons(view.getContext());
     }
 }
