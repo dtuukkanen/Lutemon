@@ -14,12 +14,12 @@ public class BattleField extends LutemonHabitat implements Serializable {
 
         while (true) {
             sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ") " + " hyökkää ja " + lutemon1.getName() + "(" + lutemon1.getColor() + ") puolustautuu hyökkäykseltä.\n");
-            lutemon2.defense(lutemon2); //Lutemon2 attacks
+            lutemon1.defense(lutemon2); //Lutemon2 attacks
             if (lutemon1.getHealth() <= 0) {
                 sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ") kuoli haavoihinsa.\n");
                 sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ")" + " voitti taistelun!\n");
-                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon1);
                 lutemon2.addExperience();
+                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon1);
                 break;
             }
 
@@ -28,8 +28,8 @@ public class BattleField extends LutemonHabitat implements Serializable {
             if (lutemon2.getHealth() <= 0) {
                 sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ") kuoli haavoihinsa.\n");
                 sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ")" + " voitti taistelun!\n");
-                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon2);
                 lutemon1.addExperience();
+                Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon2);
                 break;
             }
         }
