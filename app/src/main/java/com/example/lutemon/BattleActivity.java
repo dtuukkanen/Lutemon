@@ -47,12 +47,12 @@ public class BattleActivity extends AppCompatActivity {
         ArrayList<Lutemon> checkedLutemons = battleViewAdapter.getCheckedLutemons();
         StringBuilder sb = null;
         if (checkedLutemons.size() == 2) {
-            Lutemon lutemonOne = checkedLutemons.get(0);
-            Lutemon lutemonTwo = checkedLutemons.get(1);
-            sb = Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
+            Lutemon lutemon1 = checkedLutemons.get(0);
+            Lutemon lutemon2 = checkedLutemons.get(1);
+            sb = Storage.getInstance().getBattlefield().fight(lutemon1, lutemon2);
             Toast.makeText(this, "Taistelu alkoi!", Toast.LENGTH_LONG).show();
-            battleLog.setMovementMethod(new ScrollingMovementMethod());
             battleLog.setText(sb);
+            battleViewAdapter.notifyDataSetChanged();
         }
     }
 }
