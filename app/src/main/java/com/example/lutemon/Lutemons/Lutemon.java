@@ -33,8 +33,8 @@ public class Lutemon implements Serializable {
     }
 
     public int attack() {
-        attack = (int) ((attack + Math.random() * 3) + experience);
-        return attack;
+        int damage = (int) ((attack + Math.random() * 3) + experience);
+        return damage;
     }
 
     public String getName() {
