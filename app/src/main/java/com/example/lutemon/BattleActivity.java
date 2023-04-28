@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,7 +30,6 @@ public class BattleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_battle);
         fightButton = findViewById(R.id.btnFight);
         battleLog = findViewById(R.id.tvBattleLog);
-        battleLog.setText("Taisteluloki");
         recyclerView = findViewById(R.id.rvFighterList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         battleViewAdapter = new BattleViewAdapter(getApplicationContext(), Storage.getInstance().getBattlefield().getLutemons());
@@ -51,6 +51,7 @@ public class BattleActivity extends AppCompatActivity {
             Lutemon lutemonTwo = checkedLutemons.get(1);
             sb = Storage.getInstance().getBattlefield().fight(lutemonOne, lutemonTwo);
             Toast.makeText(this, "Taistelu alkoi!", Toast.LENGTH_LONG).show();
+            battleLog.setMovementMethod(new ScrollingMovementMethod());
             battleLog.setText(sb);
         }
     }
