@@ -52,6 +52,7 @@ public class Storage {
         lutemons.addAll(Storage.getInstance().getHome().getLutemons());
         lutemons.addAll(Storage.getInstance().getBattlefield().getLutemons());
         lutemons.addAll(Storage.getInstance().getTraining().getLutemons());
+        lutemons.addAll(Storage.getInstance().getDead().getLutemons());
         return lutemons;
     }
 

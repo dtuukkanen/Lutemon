@@ -19,6 +19,10 @@ public class BattleField extends LutemonHabitat implements Serializable {
                 sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ") kuoli haavoihinsa.\n");
                 sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ")" + " voitti taistelun!\n");
                 lutemon2.addExperience();
+                lutemon2.addWin();
+                lutemon2.addBattles();
+                lutemon1.addBattles();
+                lutemon1.setStatus("Kuollut");
                 Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon1);
                 break;
             }
@@ -29,6 +33,10 @@ public class BattleField extends LutemonHabitat implements Serializable {
                 sb.append(lutemon2.getName() + " (" + lutemon2.getColor() + ") kuoli haavoihinsa.\n");
                 sb.append(lutemon1.getName() + " (" + lutemon1.getColor() + ")" + " voitti taistelun!\n");
                 lutemon1.addExperience();
+                lutemon1.addWin();
+                lutemon1.addBattles();
+                lutemon2.addBattles();
+                lutemon2.setStatus("Kuollut");
                 Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon2);
                 break;
             }

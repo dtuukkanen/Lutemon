@@ -7,6 +7,7 @@ public class TrainingArea extends LutemonHabitat {
     public void train() {
         for (Lutemon lutemon : lutemons) {
             lutemon.addExperience();
+            lutemon.addTrainingDays();
         }
     }
 }

@@ -50,9 +50,11 @@ public class BattleActivity extends AppCompatActivity {
             Lutemon lutemon1 = checkedLutemons.get(0);
             Lutemon lutemon2 = checkedLutemons.get(1);
             sb = Storage.getInstance().getBattlefield().fight(lutemon1, lutemon2);
-            Toast.makeText(this, "Taistelu alkoi!", Toast.LENGTH_LONG).show();
             battleLog.setText(sb);
             battleViewAdapter.notifyDataSetChanged();
+        }
+        else {
+            Toast.makeText(this, "Valitse kaksi lutemonia aloittaaksesi taistelun.", Toast.LENGTH_LONG).show();
         }
     }
 }

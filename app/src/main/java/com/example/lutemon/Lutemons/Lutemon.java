@@ -6,25 +6,32 @@ public class Lutemon implements Serializable {
 
     protected String name;
     protected String color;
+    protected String status;
     protected int attack;
     protected int defence;
     protected int experience;
     protected int health;
     protected int maxHealth;
     protected int id;
-    private int idCounter;
+    protected int wins;
+    protected int battles;
+    protected int trainingDays;
+    //private int idCounter;
     private int image;
 
-    public Lutemon(String name, String color, int attack, int defence, int experience, int health, int maxHealth, int id, int idCounter, int image) {
+    public Lutemon(String name, String color, String status, int attack, int defence, int experience, int health, int maxHealth, int id, int wins, int battles, int trainingDays, int image) {
         this.name = name;
         this.color = color;
+        this.status = status;
         this.attack = attack;
         this.defence = defence;
-        this.experience = 0;
+        this.experience = experience;
         this.health = health;
         this.maxHealth = maxHealth;
         this.id = id;
-        this.idCounter = idCounter;
+        this.wins = wins;
+        this.battles = battles;
+        this.trainingDays = trainingDays;
         this.image = image;
     }
 
@@ -43,6 +50,9 @@ public class Lutemon implements Serializable {
 
     public String getColor() {
         return color;
+    }
+    public String getStatus() {
+        return status;
     }
     public int getAttack() {
         return attack;
@@ -70,6 +80,17 @@ public class Lutemon implements Serializable {
     public int getImage() {
         return image;
     }
+    public int getWins() {
+        return wins;
+    }
+
+    public int getBattles() {
+        return battles;
+    }
+
+    public int getTrainingDays() {
+        return trainingDays;
+    }
 
     public void addExperience() {
         this.experience += 1;
@@ -77,5 +98,21 @@ public class Lutemon implements Serializable {
 
     public void setHealth(int maxHealth) {
         health = maxHealth;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void addWin() {
+        this.wins += 1;
+    }
+
+    public void addBattles() {
+        this.battles += 1;
+    }
+
+    public void addTrainingDays() {
+        this.trainingDays += 1;
     }
 }
