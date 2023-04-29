@@ -8,6 +8,7 @@ import com.example.lutemon.LutemonHabitats.Home;
 import com.example.lutemon.LutemonHabitats.TrainingArea;
 import com.example.lutemon.Lutemons.Lutemon;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -111,6 +112,7 @@ public class Storage {
             saveLutemonDead.close();
         } catch (IOException e) {
             System.out.println("Lutemonin tallentaminen epäonnistui.");
+            e.printStackTrace();
         }
     }
 
@@ -132,10 +134,15 @@ public class Storage {
             ObjectInputStream loadLutemonsDead = new ObjectInputStream(context.openFileInput("LutemonsDead.data"));
             dead = (Dead) loadLutemonsBattlefield.readObject();
             loadLutemonsDead.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Ei löydetty ladattavia Lutemoneja");
+            e.printStackTrace();
         } catch (IOException e) {
             System.out.println("Lutemonien lataaminen epäonnistui.");
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             System.out.println("Lutemonien lataaminen epäonnistui.");
+            e.printStackTrace();
         }
     }
 
