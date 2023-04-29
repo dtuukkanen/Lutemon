@@ -16,6 +16,7 @@ public class BattleViewAdapter extends RecyclerView.Adapter<CheckboxHolder> {
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
     private SparseBooleanArray checkedLutemons;
+    private final int maxChecked = 2;
     private int counter;
 
     public BattleViewAdapter(Context context, ArrayList<Lutemon> lutemons) {
@@ -34,20 +35,17 @@ public class BattleViewAdapter extends RecyclerView.Adapter<CheckboxHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CheckboxHolder holder, int position) {
-
-
         holder.checkBox.setText(lutemons.get(position).getName());
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            checkedLutemons.put(position, isChecked);
-
             if (isChecked) {
-                counter++;
-            }
-            else {
-                counter--;
-            }
-            if (counter > 2) {
-                buttonView.setChecked(false);
+                if (counter >= maxChecked) {
+                    buttonView.setChecked(false);
+                } else {
+                    checkedLutemons.put(position, true);
+                    counter++;
+                }
+            } else {
+                checkedLutemons.delete(position);
                 counter--;
             }
         });
