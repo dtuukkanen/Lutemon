@@ -108,22 +108,28 @@ public class FragmentTrain extends Fragment {
     }
 
     public void moveLutemonsToOtherLocation(View view) {
-        ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
-        System.out.println(checkedLutemons.size());
 
-        for (Lutemon lutemon : checkedLutemons) {
-            switch (rgOptions.getCheckedRadioButtonId()) {
-                case R.id.rbHome:
-                    Storage.getInstance().moveLutemon(Storage.Location.TRAINING, Storage.Location.HOME, lutemon);
-                    break;
-                case R.id.rbBattle:
-                    Storage.getInstance().moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
-                    break;
+        ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
+        if (checkedLutemons.size() != 0) {
+            for (Lutemon lutemon : checkedLutemons) {
+                switch (rgOptions.getCheckedRadioButtonId()) {
+                    case R.id.rbHome:
+                        Storage.getInstance().moveLutemon(Storage.Location.TRAINING, Storage.Location.HOME, lutemon);
+                        break;
+                    case R.id.rbBattle:
+                        Storage.getInstance().moveLutemon(Storage.Location.TRAINING, Storage.Location.BATTLEFIELD, lutemon);
+                        break;
+                    default:
+                        Toast.makeText(getContext(), "Valitse kohde siirrettäville Lutemoneille!", Toast.LENGTH_LONG).show();
+                        break;
+                }
             }
+            checkboxAdapter.notifyDataSetChanged();
+            Storage.getInstance().saveLutemons(view.getContext());
+            Toast.makeText(getContext(), "Lutemonit siirretty!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), "Valitse ensin siirrettävät Lutemonit!", Toast.LENGTH_LONG).show();
         }
-        Storage.getInstance().saveLutemons(view.getContext());
-        checkboxAdapter.notifyDataSetChanged();
-        Toast.makeText(getContext(), "Lutemonit siirretty!", Toast.LENGTH_LONG).show();
     }
 
     public void trainLutemons(View view) {

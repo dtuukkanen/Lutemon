@@ -23,6 +23,7 @@ public class BattleField extends LutemonHabitat implements Serializable {
                 lutemon2.addBattles();
                 lutemon1.addBattles();
                 lutemon1.setStatus("Kuollut");
+                lutemon1.setHealth(0);
                 Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon1);
                 break;
             }
@@ -37,6 +38,7 @@ public class BattleField extends LutemonHabitat implements Serializable {
                 lutemon1.addBattles();
                 lutemon2.addBattles();
                 lutemon2.setStatus("Kuollut");
+                lutemon2.setHealth(0);
                 Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.DEAD, lutemon2);
                 break;
             }

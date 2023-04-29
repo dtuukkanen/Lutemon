@@ -105,19 +105,25 @@ public class FragmentBattle extends Fragment {
     public void moveLutemonsToOtherLocation(View view) {
 
         ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
-
-        for (Lutemon lutemon : checkedLutemons) {
-            switch (rgOptions.getCheckedRadioButtonId()) {
-                case R.id.rbHome:
-                    Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.HOME, lutemon);
-                    break;
-                case R.id.rbTrain:
-                    Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.TRAINING, lutemon);
-                    break;
+        if (checkedLutemons.size() != 0) {
+            for (Lutemon lutemon : checkedLutemons) {
+                switch (rgOptions.getCheckedRadioButtonId()) {
+                    case R.id.rbHome:
+                        Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.HOME, lutemon);
+                        break;
+                    case R.id.rbTrain:
+                        Storage.getInstance().moveLutemon(Storage.Location.BATTLEFIELD, Storage.Location.TRAINING, lutemon);
+                        break;
+                    default:
+                        Toast.makeText(getContext(), "Valitse kohde siirrettäville Lutemoneille!", Toast.LENGTH_LONG).show();
+                        break;
+                }
             }
+            checkboxAdapter.notifyDataSetChanged();
+            Storage.getInstance().saveLutemons(view.getContext());
+            Toast.makeText(getContext(), "Lutemonit siirretty!", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), "Valitse ensin siirrettävät Lutemonit!", Toast.LENGTH_LONG).show();
         }
-        checkboxAdapter.notifyDataSetChanged();
-        Storage.getInstance().saveLutemons(view.getContext());
-        Toast.makeText(getContext(), "Lutemonit siirretty!", Toast.LENGTH_LONG).show();
     }
 }
