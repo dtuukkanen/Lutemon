@@ -25,6 +25,14 @@ public class Storage {
 
     }
 
+    public static Storage getInstance() {
+        if (storage == null) {
+            storage = new Storage();
+        }
+        return storage;
+    }
+
+
     public Home getHome() {
         return home;
     }
@@ -39,13 +47,6 @@ public class Storage {
 
     public Dead getDead() {
         return dead;
-    }
-
-    public static Storage getInstance() {
-        if (storage == null) {
-            storage = new Storage();
-        }
-        return storage;
     }
 
     public ArrayList<Lutemon> getLutemons() {

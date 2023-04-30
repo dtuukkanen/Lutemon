@@ -37,28 +37,27 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
 
     public void createLutemon(View view) {
-        ++id;
         name = editName.getText().toString();
 
 
         if (rbArmatuuri.isChecked()) {
-            lutemon = new Armatuuri(name, id);
+            lutemon = new Armatuuri(name);
             rbArmatuuri.setChecked(false);
         }
         else if (rbSatky.isChecked()) {
-            lutemon = new Satky(name, id);
+            lutemon = new Satky(name);
             rbSatky.setChecked(false);
         }
         else if (rbLateksii.isChecked()) {
-            lutemon = new Lateksii(name, id);
+            lutemon = new Lateksii(name);
             rbLateksii.setChecked(false);
         }
         else if (rbKrk.isChecked()) {
-           lutemon = new KRK(name, id);
+           lutemon = new KRK(name);
             rbKrk.setChecked(false);
         }
         else if (rbKetek.isChecked()) {
-            lutemon = new KeTek(name, id);
+            lutemon = new KeTek(name);
             rbKetek.setChecked(false);
         }
         Storage.getInstance().getHome().createLutemon(lutemon);
