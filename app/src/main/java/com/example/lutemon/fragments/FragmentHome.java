@@ -27,7 +27,7 @@ import java.util.ArrayList;
  * Use the {@link FragmentHome#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentHome extends Fragment {
+public class FragmentHome extends Fragment { // A fragment for the "Home"-section of the "MoveActivity".
 
     private RecyclerView recyclerView;
     private CheckboxAdapter checkboxAdapter;
@@ -104,7 +104,7 @@ public class FragmentHome extends Fragment {
     }
 
 
-    public void moveLutemonsToOtherLocation(View view) {
+    public void moveLutemonsToOtherLocation(View view) { // Method for moving lutemons to either "Battle" or "Training" -sections
 
         ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
         if (checkedLutemons.size() != 0) {

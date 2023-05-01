@@ -11,7 +11,7 @@ import com.example.lutemon.Lutemons.Lutemon;
 
 import java.util.ArrayList;
 
-public class LutemonViewAdapter extends RecyclerView.Adapter<LutemonViewHolder> {
+public class LutemonViewAdapter extends RecyclerView.Adapter<LutemonViewHolder> { // Card for individual lutemon to be displayed, when listing all saved lutemons.
 
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();

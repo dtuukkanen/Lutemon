@@ -12,7 +12,7 @@ import com.example.lutemon.Lutemons.Lutemon;
 
 import java.util.ArrayList;
 
-public class BattleViewAdapter extends RecyclerView.Adapter<CheckboxHolder> {
+public class BattleViewAdapter extends RecyclerView.Adapter<CheckboxHolder> { // Displays lutemons available for battle
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
     private SparseBooleanArray checkedLutemons;
@@ -34,7 +34,7 @@ public class BattleViewAdapter extends RecyclerView.Adapter<CheckboxHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CheckboxHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CheckboxHolder holder, int position) { // Manages the list of checked Lutemons
         holder.checkBox.setText(lutemons.get(position).getName());
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -56,7 +56,7 @@ public class BattleViewAdapter extends RecyclerView.Adapter<CheckboxHolder> {
         return lutemons.size();
     }
 
-    public ArrayList<Lutemon> getCheckedLutemons() {
+    public ArrayList<Lutemon> getCheckedLutemons() { // Returns lutemons chosen for battle
         ArrayList<Lutemon> lutemonsChecked = new ArrayList<>();
         for (int i = 0; i < lutemons.size(); i++) {
             if (checkedLutemons.get(i)) {

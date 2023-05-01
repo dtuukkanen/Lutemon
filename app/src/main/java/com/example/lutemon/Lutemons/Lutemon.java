@@ -2,7 +2,7 @@ package com.example.lutemon.Lutemons;
 
 import java.io.Serializable;
 
-public class Lutemon implements Serializable {
+public class Lutemon implements Serializable { // Parent class to be extended by different kinds of lutemons.
 
     protected String name;
     protected String color;
@@ -32,15 +32,16 @@ public class Lutemon implements Serializable {
         this.image = image;
     }
 
-    public void defense(Lutemon lutemon) {
-        health -= (lutemon.attack() - defence);
-    }
+
+    // Together the defence and attack methods function as the methods, that lutemons use to harm each other
+    public void defense(Lutemon lutemon) { health -= (lutemon.attack() - defence);}
 
     public int attack() {
         int damage = (int) ((attack + Math.random() * 3) + experience);
         return damage;
     }
 
+    // Getters
     public String getName() {
         return name;
     }
@@ -85,9 +86,8 @@ public class Lutemon implements Serializable {
         return trainingDays;
     }
 
-    public void addExperience() {
-        this.experience += 1;
-    }
+    // Methods for changing lutemon's attributes
+    public void addExperience() {this.experience += 1;}
 
     public void setHealth(int maxHealth) {
         health = maxHealth;

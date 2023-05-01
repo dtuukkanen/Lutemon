@@ -2,7 +2,7 @@ package com.example.lutemon.Lutemons;
 
 import com.example.lutemon.R;
 
-public class Armatuuri extends Lutemon {
+public class Armatuuri extends Lutemon { // White "Lutemon" subclass
 
 
     public Armatuuri(String name) {

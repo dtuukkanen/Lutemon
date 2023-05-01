@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * Use the {@link FragmentTrain#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentTrain extends Fragment {
+public class FragmentTrain extends Fragment { // A fragment for the "Training"-section of the "MoveActivity".
     RecyclerView recyclerView;
     private CheckboxAdapter checkboxAdapter;
     private RadioGroup rgOptions;
@@ -107,7 +107,7 @@ public class FragmentTrain extends Fragment {
         recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    public void moveLutemonsToOtherLocation(View view) {
+    public void moveLutemonsToOtherLocation(View view) { // Method for moving lutemons to either "Battle" or "Home" -sections
 
         ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
         if (checkedLutemons.size() != 0) {
@@ -132,7 +132,7 @@ public class FragmentTrain extends Fragment {
         }
     }
 
-    public void trainLutemons(View view) {
+    public void trainLutemons(View view) { // Method, which uses methods from the "Storage"-class to train lutemons stored in training
         Storage.getInstance().getTraining().train();
         Storage.getInstance().saveLutemons(view.getContext());
         Toast.makeText(getContext(), "Lutemoneja treenataan!", Toast.LENGTH_LONG).show();

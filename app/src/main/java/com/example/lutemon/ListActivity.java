@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity { // Activity for displaying all saved lutemons
     private RecyclerView recyclerView;
 
     @Override

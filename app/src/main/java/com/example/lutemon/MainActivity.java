@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity { // the main activity / "front page" of the app
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    // Methods for switching to other activities
     public void switchToMove(View view) {
         Intent intent = new Intent(this, MoveActivity.class);
         startActivity(intent);
@@ -30,16 +31,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    public void loadLutemons(View view) {
-        Storage.getInstance().loadLutemons(view.getContext());
-        Toast.makeText(this, "Lutemonit ladattu!", Toast.LENGTH_LONG).show();
-    }
-
     public void switchToBattle(View view) {
         Intent intent = new Intent(this, BattleActivity.class);
         startActivity(intent);
     }
 
+
+    public void loadLutemons(View view) { // from user input, loads all previously saved lutemons
+        Storage.getInstance().loadLutemons(view.getContext());
+        Toast.makeText(this, "Lutemonit ladattu!", Toast.LENGTH_LONG).show();
+    }
 
 }

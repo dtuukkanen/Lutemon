@@ -12,7 +12,7 @@ import com.example.lutemon.Lutemons.Lutemon;
 
 import java.util.ArrayList;
 
-public class CheckboxAdapter extends RecyclerView.Adapter<CheckboxHolder> {
+public class CheckboxAdapter extends RecyclerView.Adapter<CheckboxHolder> { // builds view for each lutemon, which can be chosen to battle
 
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
@@ -46,7 +46,7 @@ public class CheckboxAdapter extends RecyclerView.Adapter<CheckboxHolder> {
         return lutemons.size();
     }
 
-    public ArrayList<Lutemon> getCheckedLutemons() {
+    public ArrayList<Lutemon> getCheckedLutemons() { // Returns lutemons chosen for battle
         ArrayList<Lutemon> lutemonsChecked = new ArrayList<>();
         for (int i = 0; i < lutemons.size(); i++) {
             if (checkedLutemons.get(i)) {

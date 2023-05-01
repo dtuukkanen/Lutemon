@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * Use the {@link FragmentBattle#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentBattle extends Fragment {
+public class FragmentBattle extends Fragment { // A fragment for the "Battle"-section of the "MoveActivity".
     RecyclerView recyclerView;
 
     private RadioGroup rgOptions;
@@ -102,7 +102,7 @@ public class FragmentBattle extends Fragment {
         recyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    public void moveLutemonsToOtherLocation(View view) {
+    public void moveLutemonsToOtherLocation(View view) { // Method for moving lutemons to either "Home" or "Training" -sections
 
         ArrayList<Lutemon> checkedLutemons = checkboxAdapter.getCheckedLutemons();
         if (checkedLutemons.size() != 0) {

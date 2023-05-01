@@ -36,7 +36,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
     }
 
 
-    public void createLutemon(View view) {
+    public void createLutemon(View view) { // Determines from user input, what kind of Lutemon is created and saves it to the storage. Informs the user of successful creation of Lutemon.
         name = editName.getText().toString();
 
 

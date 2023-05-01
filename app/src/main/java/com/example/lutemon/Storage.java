@@ -14,17 +14,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Storage {
+public class Storage { // Singleton class for storing and moving all lutemons in the system
+
+    // Habitat-subclass -objects for storing all lutemons
     private Home home = new Home();
     private BattleField battlefield = new BattleField();
     private TrainingArea training = new TrainingArea();
     private Dead dead = new Dead();
+
+    // Singleton structure
     private static Storage storage = null;
-
-    public Storage() {
-
-    }
-
+    public Storage() {}
     public static Storage getInstance() {
         if (storage == null) {
             storage = new Storage();
@@ -32,7 +32,7 @@ public class Storage {
         return storage;
     }
 
-
+    // Getters
     public Home getHome() {
         return home;
     }
@@ -49,7 +49,7 @@ public class Storage {
         return dead;
     }
 
-    public ArrayList<Lutemon> getLutemons() {
+    public ArrayList<Lutemon> getLutemons() { // Returns list of all lutemons stored in all habitats
         ArrayList<Lutemon> lutemons = new ArrayList<>();
         lutemons.addAll(Storage.getInstance().getHome().getLutemons());
         lutemons.addAll(Storage.getInstance().getBattlefield().getLutemons());
@@ -58,7 +58,7 @@ public class Storage {
         return lutemons;
     }
 
-    public void moveLutemon(Location from, Location to, Lutemon lutemon) {
+    public void moveLutemon(Location from, Location to, Lutemon lutemon) { // Method for moving lutemons from one habitat to another
         switch (from) {
             case HOME:
                 home.removeLutemon(lutemon);
@@ -86,14 +86,14 @@ public class Storage {
         }
     }
 
-    public enum Location {
+    public enum Location { // Enumeration for different lutemon storage habitats
         HOME,
         TRAINING,
         BATTLEFIELD,
         DEAD,
     }
 
-    public void saveLutemons(Context context) {
+    public void saveLutemons(Context context) { // Method for saving all current lutemons to device memory
         try {
             // Save home
             ObjectOutputStream saveLutemonHome = new ObjectOutputStream(context.openFileOutput("LutemonsHome.data", Context.MODE_PRIVATE));
@@ -117,7 +117,7 @@ public class Storage {
         }
     }
 
-    public void loadLutemons(Context context) {
+    public void loadLutemons(Context context) { // Method for loading all previously saved lutemons from device memory
         try {
             // Load home
             ObjectInputStream loadLutemonsHome = new ObjectInputStream(context.openFileInput("LutemonsHome.data"));

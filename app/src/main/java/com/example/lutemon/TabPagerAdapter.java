@@ -11,7 +11,7 @@ import com.example.lutemon.fragments.FragmentHome;
 import com.example.lutemon.fragments.FragmentTrain;
 
 public class TabPagerAdapter extends FragmentStateAdapter {
-    public TabPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    public TabPagerAdapter(@NonNull FragmentActivity fragmentActivity) { // Adapter for the tabPageView used in MoveActivity
         super(fragmentActivity);
     }
 
