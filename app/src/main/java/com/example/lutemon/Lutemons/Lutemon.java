@@ -33,7 +33,7 @@ public class Lutemon implements Serializable { // Parent class to be extended by
     }
 
 
-    // Together the defence and attack methods function as the methods, that lutemons use to harm each other
+    // Together the defence and attack methods function as the means, that lutemons use to harm each other
     public void defense(Lutemon lutemon) { health -= (lutemon.attack() - defence);}
 
     public int attack() {

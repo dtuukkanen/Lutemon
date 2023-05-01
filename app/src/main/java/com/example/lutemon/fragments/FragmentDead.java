@@ -19,7 +19,7 @@ import com.example.lutemon.Storage;
  * Use the {@link FragmentDead#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentDead extends Fragment {
+public class FragmentDead extends Fragment { // A fragment for the "dead"-section of the "MoveActivity".
     RecyclerView recyclerView;
     LutemonViewAdapter lutemonViewAdapter;
     // TODO: Rename parameter arguments, choose names that match

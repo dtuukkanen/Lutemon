@@ -15,7 +15,7 @@ import com.example.lutemon.Lutemons.Lateksii;
 import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.Lutemons.Satky;
 
-public class CreateLutemonActivity extends AppCompatActivity {
+public class CreateLutemonActivity extends AppCompatActivity { // Activity, where all new lutemons are created
 
     private RadioButton rbArmatuuri, rbSatky, rbLateksii, rbKrk, rbKetek;
     private EditText editName;

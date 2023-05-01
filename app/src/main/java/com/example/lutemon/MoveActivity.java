@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MoveActivity extends AppCompatActivity {
+public class MoveActivity extends AppCompatActivity { // Activity for moving lutemons from habitat to another, uses tablayout
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
