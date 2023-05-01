@@ -1,5 +1,5 @@
 # Lutemon
-**Tekijät:** Daniel Tuukkanen, Sami Anttalainen ja Hannes Turppo
+**Tekijät:** Daniel Tuukkanen, Sami Anttalainen ja Hannes Turppo ©
 
 **Demovideo:** https://youtu.be/opoSL6qWmD0
 
