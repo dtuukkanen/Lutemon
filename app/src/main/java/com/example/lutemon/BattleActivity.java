@@ -36,6 +36,7 @@ public class BattleActivity extends AppCompatActivity { // Activity, where Lutem
             @Override
             public void onClick(View view) {
                 fight();
+                Storage.getInstance().saveLutemons(view.getContext());
             }
         });
 
