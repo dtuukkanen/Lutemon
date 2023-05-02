@@ -8,7 +8,7 @@
     tools:context=".CreateLutemonActivity">
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/rgLutemonTypes"
         android:layout_width="279dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -58,7 +58,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/rgLutemonTypes" />
 
     <Button
         android:id="@+id/btnCreateLutemon"
