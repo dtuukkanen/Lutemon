@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.lutemon.Lutemons.Armatuuri;
@@ -16,22 +17,15 @@ import com.example.lutemon.Lutemons.Lutemon;
 import com.example.lutemon.Lutemons.Satky;
 
 public class CreateLutemonActivity extends AppCompatActivity { // Activity, where all new lutemons are created
-
-    private RadioButton rbArmatuuri, rbSatky, rbLateksii, rbKrk, rbKetek;
     private EditText editName;
     private String name;
-    private int id = -1;
-    private Lutemon lutemon;
+    private RadioGroup rgLutemonTypes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_lutemon);
-        rbArmatuuri = findViewById(R.id.rbArmatuuri);
-        rbSatky = findViewById(R.id.rbSatky);
-        rbLateksii = findViewById(R.id.rbLateksii);
-        rbKrk = findViewById(R.id.rbKRK);
-        rbKetek = findViewById(R.id.rbKetek);
+        rgLutemonTypes = findViewById(R.id.rgLutemonTypes);
         editName = findViewById(R.id.editTextName);
     }
 
@@ -39,30 +33,33 @@ public class CreateLutemonActivity extends AppCompatActivity { // Activity, wher
     public void createLutemon(View view) { // Determines from user input, what kind of Lutemon is created and saves it to the storage. Informs the user of successful creation of Lutemon.
         name = editName.getText().toString();
 
-
-        if (rbArmatuuri.isChecked()) {
-            lutemon = new Armatuuri(name);
-            rbArmatuuri.setChecked(false);
+        switch (rgLutemonTypes.getCheckedRadioButtonId()) {
+            case R.id.rbArmatuuri:
+                Storage.getInstance().getHome().createLutemon(new Armatuuri(name));
+                Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.rbSatky:
+                Storage.getInstance().getHome().createLutemon(new Satky(name));
+                Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.rbLateksii:
+                Storage.getInstance().getHome().createLutemon(new Lateksii(name));
+                Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.rbKRK:
+                Storage.getInstance().getHome().createLutemon(new KRK(name));
+                Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.rbKetek:
+                Storage.getInstance().getHome().createLutemon(new KeTek(name));
+                Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
+                break;
+            default:
+                Toast.makeText(this, "Valitse tyyppi!", Toast.LENGTH_LONG).show();
+                break;
         }
-        else if (rbSatky.isChecked()) {
-            lutemon = new Satky(name);
-            rbSatky.setChecked(false);
-        }
-        else if (rbLateksii.isChecked()) {
-            lutemon = new Lateksii(name);
-            rbLateksii.setChecked(false);
-        }
-        else if (rbKrk.isChecked()) {
-           lutemon = new KRK(name);
-            rbKrk.setChecked(false);
-        }
-        else if (rbKetek.isChecked()) {
-            lutemon = new KeTek(name);
-            rbKetek.setChecked(false);
-        }
-        Storage.getInstance().getHome().createLutemon(lutemon);
         Storage.getInstance().saveLutemons(view.getContext());
         editName.setText("");
-        Toast.makeText(this, "Lutemon pyydystetty!", Toast.LENGTH_LONG).show();
+        rgLutemonTypes.clearCheck();
     }
 }
