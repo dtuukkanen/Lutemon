@@ -15,7 +15,7 @@ public class Lutemon implements Serializable { // Parent class to be extended by
     protected int wins;
     protected int battles;
     protected int trainingDays;
-    private int image;
+    protected int image;
 
     public Lutemon(String name, String color, String status, int attack, int defence, int experience, int health, int maxHealth, int wins, int battles, int trainingDays, int image) {
         this.name = name;
